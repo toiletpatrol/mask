@@ -5,6 +5,14 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  state = {
+    value: "",
+  };
+  onChange = (e) => {
+    this.setState({value: e.target.value});
+    console.log("CHANGE", e.target.value);
+  };
+
   render() {
     return (
       <div className="App">
@@ -13,7 +21,7 @@ class App extends Component {
           <h2>Welcome to React</h2>
         </div>
         <p className="App-intro">
-          <InputMask mask="+7 (999) 999-99-99" />
+          <InputMask value={this.state.value} onChange={this.onChange} />
         </p>
       </div>
     );
